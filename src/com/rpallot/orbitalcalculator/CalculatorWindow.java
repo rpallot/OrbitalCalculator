@@ -27,6 +27,7 @@ public class CalculatorWindow extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textField_4;
 
 	public CalculatorWindow() {
 		setResizable(false);
@@ -66,69 +67,88 @@ public class CalculatorWindow extends JFrame {
 		mnTools.add(mntmOptions);
 		getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 674, 100);
-		getContentPane().add(panel);
-		panel.setLayout(null);
+		JPanel pnlOrbEle = new JPanel();
+		pnlOrbEle.setBounds(10, 11, 674, 100);
+		getContentPane().add(pnlOrbEle);
+		pnlOrbEle.setLayout(null);
 		
 		JLabel lblEnterOrbitalElements = new JLabel("Enter Orbital Elements");
 		lblEnterOrbitalElements.setFont(new Font("Verdana", Font.BOLD, 14));
 		lblEnterOrbitalElements.setBounds(250, 2, 174, 14);
-		panel.add(lblEnterOrbitalElements);
+		pnlOrbEle.add(lblEnterOrbitalElements);
 		
 		JLabel lblEccentricity = new JLabel("Eccentricity (e):");
 		lblEccentricity.setBounds(10, 26, 79, 14);
-		panel.add(lblEccentricity);
+		pnlOrbEle.add(lblEccentricity);
 		
 		txtEcc = new JTextField();
 		txtEcc.setBounds(112, 23, 86, 20);
-		panel.add(txtEcc);
+		pnlOrbEle.add(txtEcc);
 		txtEcc.setColumns(10);
 		
 		JLabel lblSMA = new JLabel("Semimajor axis (a):");
 		lblSMA.setBounds(10, 54, 92, 14);
-		panel.add(lblSMA);
+		pnlOrbEle.add(lblSMA);
 		
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(112, 51, 86, 20);
-		panel.add(textField);
+		pnlOrbEle.add(textField);
 		
 		JLabel lblInclination = new JLabel("Inclination (i):");
 		lblInclination.setBounds(218, 26, 66, 14);
-		panel.add(lblInclination);
+		pnlOrbEle.add(lblInclination);
 		
 		textInclination = new JTextField();
 		textInclination.setColumns(10);
 		textInclination.setBounds(330, 23, 86, 20);
-		panel.add(textInclination);
+		pnlOrbEle.add(textInclination);
 		
 		JLabel lblAN = new JLabel("Ascending Node (AN):");
 		lblAN.setBounds(218, 54, 106, 14);
-		panel.add(lblAN);
+		pnlOrbEle.add(lblAN);
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(330, 51, 86, 20);
-		panel.add(textField_1);
+		pnlOrbEle.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblPeriapsis = new JLabel("Periapsis Argument (w):");
 		lblPeriapsis.setBounds(451, 26, 115, 14);
-		panel.add(lblPeriapsis);
+		pnlOrbEle.add(lblPeriapsis);
 		
 		JLabel lblMeanAnomaly = new JLabel("Mean Anomaly (M):");
 		lblMeanAnomaly.setBounds(451, 54, 93, 14);
-		panel.add(lblMeanAnomaly);
+		pnlOrbEle.add(lblMeanAnomaly);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
 		textField_2.setBounds(578, 23, 86, 20);
-		panel.add(textField_2);
+		pnlOrbEle.add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(578, 51, 86, 20);
-		panel.add(textField_3);
+		pnlOrbEle.add(textField_3);
+		
+		JPanel pnlGravBody = new JPanel();
+		pnlGravBody.setBounds(10, 122, 674, 100);
+		getContentPane().add(pnlGravBody);
+		pnlGravBody.setLayout(null);
+		
+		JLabel lblGravBody = new JLabel("Enter Influencing Body's Elements");
+		lblGravBody.setBounds(202, 6, 269, 18);
+		lblGravBody.setFont(new Font("Verdana", Font.BOLD, 14));
+		pnlGravBody.add(lblGravBody);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(112, 26, 86, 20);
+		pnlGravBody.add(textField_4);
+		
+		JLabel label = new JLabel("Eccentricity (e):");
+		label.setBounds(10, 29, 79, 14);
+		pnlGravBody.add(label);
 	}
 
 	public void initialise() {
