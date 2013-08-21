@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
@@ -35,17 +36,23 @@ public class OrbitalCalculator extends JWindow {
 		container.add(panel);
 
 		JLabel label = new JLabel("Orbital Calculator");
+		label.setForeground(Color.WHITE);
 		label.setFont(new Font("Verdana", Font.BOLD, 14));
 		label.setBounds(104, 25, 140, 30);
 		panel.add(label);
+
 		progressBar.setBounds(49, 110, 250, 15);
 		panel.add(progressBar);
-
 		progressBar.setMaximum(50);
-		loadProgressBar();
+
+		ImagePanel iPanel = new ImagePanel(Toolkit.getDefaultToolkit().getImage("res/img/splash.png"));
+		iPanel.setBounds(0, 0, 348, 150);
+		panel.add(iPanel);
 		setSize(370, 215);
 		setLocationRelativeTo(null);
 		setVisible(true);
+		
+		loadProgressBar();
 	}
 
 	private void loadProgressBar() {
@@ -56,16 +63,15 @@ public class OrbitalCalculator extends JWindow {
 				System.out.println(count);
 				if (count == 50) {
 					createFrame();
-					execute.setVisible(false);
+					getExecute().setVisible(false);
 					timer.stop();
+					
 				}
 			}
 
 			private void createFrame() throws HeadlessException {
-				JFrame frame = new JFrame();
-				frame.setSize(500, 500);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.setVisible(true);
+				CalculatorWindow window = new CalculatorWindow();
+				window.initialise();
 			}
 		};
 		timer = new Timer(50, al);
@@ -74,7 +80,15 @@ public class OrbitalCalculator extends JWindow {
 	}
 
 	public static void main(String[] args) {
-		execute = new OrbitalCalculator();
+		setExecute(new OrbitalCalculator());
+	}
+
+	public static OrbitalCalculator getExecute() {
+		return execute;
+	}
+
+	public static void setExecute(OrbitalCalculator execute) {
+		OrbitalCalculator.execute = execute;
 	};
 
 }
